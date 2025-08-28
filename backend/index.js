@@ -5,12 +5,17 @@ import connectDB from "./config/db.js"
 import passport from "passport"
 import session from "express-session"
 import passport from "./config/passport.js"
+import fs from "fs"
+import path from "path"
 
 
 
 
 dotenv.config()
 const app=express()
+
+const uploadDir=path.join(__dirname,"uploads")
+if(!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir)
 
 app.use(cors({origin:process.env.CLIENT_URL,credentials:true}))
 app.use(passport.initialize())
