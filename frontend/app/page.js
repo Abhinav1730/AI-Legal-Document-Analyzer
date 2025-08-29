@@ -2,6 +2,7 @@
 import React from "react";
 
 const HomePage = () => {
+  const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 sm:px-12 bg-gradient-to-b from-[#0B1B2B] to-[#12263A]">
       {/* Background Accent */}
@@ -20,7 +21,7 @@ const HomePage = () => {
           Secure, smart, and simple.
         </h3>
         <a
-          href="/login"
+          href={`${BASE_URL}/api/auth/google`}
           className="inline-block px-8 py-4 rounded-2xl bg-[#FFD700] text-[#0B1B2B] text-lg font-bold shadow-xl hover:bg-yellow-400 hover:scale-105 transition-transform duration-300"
         >
           Get Started

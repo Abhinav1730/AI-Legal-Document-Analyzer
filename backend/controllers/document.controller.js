@@ -7,7 +7,7 @@ import extractClausesFromText from "../utilities/huggingFace.js"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-export default async function uploadDocument(req,res){
+export const uploadDocument=async (req,res)=>{
     try {
         const user = req.user
         if(!user) return res.status(401).json({error:"Unauthorized User"})
@@ -43,7 +43,7 @@ export default async function uploadDocument(req,res){
     }
 }
 
-export default async function listDocuments(req,res) {
+export const listDocuments=async(req,res)=> {
     try {
         const user=req.user
         if(!user) return res.status(401).json({error:"Unauthorized User"})
@@ -56,7 +56,7 @@ export default async function listDocuments(req,res) {
     }
 }
 
-export default async function getDocuments(req,res) {
+export const getDocuments= async(req,res) =>{
     try {
         const user = req.user
         const id=req.params.id
@@ -71,7 +71,7 @@ export default async function getDocuments(req,res) {
     }
 }
 
-export default async function deleteDocument(req,res) {
+export const deleteDocument=async(req,res)=> {
     try {
         const user = req.user
         const id=req.params.id
@@ -92,7 +92,7 @@ export default async function deleteDocument(req,res) {
     }
 }
 
-export default async function reAnalyze(req,res) {
+export const reAnalyze=async(req,res)=> {
     try {
         const user = req.user
         const id = req.params.id
