@@ -1,23 +1,22 @@
 import mongoose from "mongoose";
 
-export default function connectDB() {
+export default async function connectDB() {
   const uri = process.env.MONGODB_URI;
   if (!uri) {
     console.log("Mongo URI not available");
     process.exit(1);
   }
-  mongoose.set("strictQuery", false);
+  
 
-  mongoose
-    .connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(() => {
+try {
+    mongoose.set("strictQuery", false);
+    await mongoose
+      .connect(uri)
       console.log("Mongodb Connection Done");
-    })
-    .catch((err) => {
-      console.log("Mongo Connection Error:");
-      process.exit(1);
-    });
+        
+       
+} catch (error) {
+  console.log("Mongo Connection Error:");
+   process.exit(1);
+}
 }

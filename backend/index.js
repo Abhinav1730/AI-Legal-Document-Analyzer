@@ -2,17 +2,20 @@ import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
 import connectDB from "./config/db.js"
-import passport from "passport"
 import session from "express-session"
 import passport from "./config/passport.js"
 import fs from "fs"
 import path from "path"
+import { fileURLToPath } from "url"
 
 
 
 
 dotenv.config()
 const app=express()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const uploadDir=path.join(__dirname,"uploads")
 if(!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir)
