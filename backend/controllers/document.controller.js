@@ -1,8 +1,9 @@
 import path from "path"
 import fs from "fs"
-import Document from "../models/document.model"
-import extractFile from "../utilities/fileParser"
+import Document from "../models/document.model.js"
+import extractFile from "../utilities/fileParser.js"
 import extractClausesFromText from "../utilities/huggingFace.js"
+import { fileURLToPath } from "url"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)

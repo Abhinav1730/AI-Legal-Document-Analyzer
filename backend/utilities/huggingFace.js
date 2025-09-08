@@ -5,7 +5,7 @@ const HF_Model = process.env.HF_MODEL
 
 if(!HF_Key) console.warn("Api key for hugging face is not present")
 
-export default function chunkText(text,chunkSize=3500,overlap=200){
+export function chunkText(text,chunkSize=3500,overlap=200){
     const chunk=[]
     let i=0
     while(i<text.length){
@@ -17,7 +17,7 @@ export default function chunkText(text,chunkSize=3500,overlap=200){
     return chunk
 }
 
-export default async function callHFModel(prompt) {
+export async function callHFModel(prompt) {
     const url=`https://api-inference.huggingface.co/models/${HF_Model}`
     const response = await fetch(url,{
         method:"POST",
@@ -44,7 +44,7 @@ export default async function callHFModel(prompt) {
     return response.json()
 }
 
-export default function parseHFOutput(output){
+export function parseHFOutput(output){
     // T5-like models return like this [{generated_text: "..."}]
     let text=""
     if(!output) return[]
@@ -94,42 +94,43 @@ If none, return [].
 
 <<<DOC>>>
 ${chunk}
-<<<END>>>`
-    }
+<<<END>>>`;
 
-    let out
-    try {
-        out = await callHFModel(prompt)
-    } catch (err) {
-        console.error("HF Error : ",err.message);
-    }
+        let out
+        try {
+            out = await callHFModel(prompt)
+        } catch (err) {
+            console.error("HF Error : ",err.message);
+            continue;
+        }
 
-    const parsed = parseHFOutput(out)
-    if(!Array.isArray(parsed)) return
-    for (const item of parsed){
-        if(!item || !item.snippet) continue
-        const type = item.type || "unknown"
-        const snippet = String(item.snippet).trim()
-        const key = `${type}||${snippet.slice(0,140)}`
-        if(seen.has(key)) continue
-        seen.add(key)
+        const parsed = parseHFOutput(out)
+        if(!Array.isArray(parsed)) continue
+        for (const item of parsed){
+            if(!item || !item.snippet) continue
+            const type = item.type || "unknown"
+            const snippet = String(item.snippet).trim()
+            const key = `${type}||${snippet.slice(0,140)}`
+            if(seen.has(key)) continue
+            seen.add(key)
 
-    // computing start index if possible
-    let start = fullText.indexOf(snippet)
-    if(start === -1){
-         // trying normalized search
-        const normSnippet = snippet.replace(/\s+/g, " ").slice(0, 200);
-        const normalizedFull = fullText.replace(/\s+/g, " ");
-        start = normalizedFull.indexOf(normSnippet);
-    }
-    const end = start !== -1 ? start + snippet.length : null;
-     annotations.push({
-        type,
-        snippet,
-        start: start !== -1 ? start : null,
-        end,
-        confidence: typeof item.confidence === "number" ? item.confidence : null
-      });
+            // computing start index if possible
+            let start = fullText.indexOf(snippet)
+            if(start === -1){
+                // trying normalized search
+                const normSnippet = snippet.replace(/\s+/g, " ").slice(0, 200);
+                const normalizedFull = fullText.replace(/\s+/g, " ");
+                start = normalizedFull.indexOf(normSnippet);
+            }
+            const end = start !== -1 ? start + snippet.length : null;
+            annotations.push({
+                type,
+                snippet,
+                start: start !== -1 ? start : null,
+                end,
+                confidence: typeof item.confidence === "number" ? item.confidence : null
+            });
+        }
     }
     return annotations
 }

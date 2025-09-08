@@ -1,8 +1,12 @@
 import fs from "fs"
-import pdfParse from "pdf-parse"
+import { createRequire } from "module"
 import mammoth from "mammoth"
 import Tesseract from "tesseract.js"
 
+
+const require = createRequire(import.meta.url)
+// Use internal CJS implementation to avoid test harness side effects
+const pdfParse = require("pdf-parse/lib/pdf-parse.js")
 
 export default async function extractFile(filePath,mimeType) {
     if(!fs.existsSync(filePath)) throw new Error("File not found")
@@ -10,6 +14,9 @@ export default async function extractFile(filePath,mimeType) {
     //for pdf
     if(mimeType === "application/pdf"){
         const buffer=fs.readFileSync(filePath)
+        if(!buffer || !Buffer.isBuffer(buffer)){
+            throw new Error("Failed to read PDF buffer")
+        }
         const data = await pdfParse(buffer)
         return (data.text || "").trim()
     }
