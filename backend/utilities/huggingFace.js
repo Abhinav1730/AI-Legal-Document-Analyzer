@@ -78,7 +78,7 @@ export function parseHFOutput(output){
  * returns array of annotations {type, snippet, start, end, confidence}
  */
 
-export default async function extractClausesFromText(fullText){
+export default async function extractClausesFromText(fullText, lang = "en"){
     if(!fullText || !fullText.trim()) return []
 
     const chunks=chunkText(fullText)
@@ -89,7 +89,7 @@ export default async function extractClausesFromText(fullText){
         const prompt = `You are a legal assistant that extracts contract clauses.
 Given the chunk between <<<DOC>>> and <<<END>>>, identify clauses belonging to these categories:
 ["termination","payment","liability","confidentiality","governing law","indemnification","dispute resolution"].
-Return ONLY a JSON array. Each item: {"type":"<category>","snippet":"<exact excerpt>","confidence":0.0}
+Return ONLY a JSON array in language ${lang}. Each item: {"type":"<category>","snippet":"<exact excerpt in ${lang}}","confidence":0.0}
 If none, return [].
 
 <<<DOC>>>

@@ -1,8 +1,10 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { X } from "lucide-react";
 
 export default function HighlightModal({ doc, onClose }) {
+  const { t } = useTranslation();
   return (
     <AnimatePresence>
       {doc && (
@@ -28,9 +30,7 @@ export default function HighlightModal({ doc, onClose }) {
             </button>
 
             {/* Title */}
-            <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-2">
-              {doc.filename}
-            </h2>
+            <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-2">{doc.filename}</h2>
 
             {/* Annotations */}
             <div className="max-h-[420px] overflow-y-auto space-y-4 pr-2 custom-scrollbar">
@@ -40,10 +40,12 @@ export default function HighlightModal({ doc, onClose }) {
                     key={idx}
                     className="p-4 rounded-xl bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 transition"
                   >
-                    <span className="font-semibold text-white">
-                      Clause:
-                    </span>{" "}
-                    {a.text || a.summary_text}
+                    <div className="text-sm mb-1 text-gray-300">
+                      {t("clause_label", { defaultValue: "Clause" })}: {t(`clause.${a.type}`, { defaultValue: a.type || "unknown" })}
+                    </div>
+                    <div>
+                      {a.text || a.summary_text}
+                    </div>
                   </div>
                 ))
               ) : (

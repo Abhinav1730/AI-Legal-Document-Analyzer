@@ -10,6 +10,17 @@
   "feature_fast": "वेगवान विश्लेषण",
   "feature_fast_desc": "काही सेकंदात हायलाइट्स मिळवा.",
   "get_started": "सुरू करा",
-  "login": "लॉगिन"
+  "login": "लॉगिन",
+  "clause_label": "तरतूद",
+  "clause": {
+    "termination": "समाप्ती",
+    "payment": "पेमेंट",
+    "liability": "जबाबदारी",
+    "confidentiality": "गोपनीयता",
+    "governing law": "लागू कायदा",
+    "indemnification": "भरपाई",
+    "dispute resolution": "वाद निराकरण",
+    "unknown": "अज्ञात"
+  }
 }
 

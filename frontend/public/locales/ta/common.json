@@ -10,6 +10,17 @@
   "feature_fast": "வேகமான பகுப்பு",
   "feature_fast_desc": "வினாடிகளில் ஒளிவுமறைகள் பெறுங்கள்.",
   "get_started": "தொடங்கு",
-  "login": "உள்நுழை"
+  "login": "உள்நுழை",
+  "clause_label": "பிரிவு",
+  "clause": {
+    "termination": "முடிவு",
+    "payment": "கட்டணம்",
+    "liability": "பொறுப்பெடுப்பு",
+    "confidentiality": "ரகசியம்",
+    "governing law": "நியம சட்டம்",
+    "indemnification": "ஈடு",
+    "dispute resolution": "விவாதத் தீர்வு",
+    "unknown": "தெரியாது"
+  }
 }
 

@@ -28,7 +28,7 @@ export const uploadDocument=async (req,res)=>{
             return res.status(400).json({error:"Extracted text is empty or too short"})
         }
 
-        const annotations = await extractClausesFromText(textContent)
+        const annotations = await extractClausesFromText(textContent, lang)
 
         const doc = new Document({
             user:user._id,
@@ -105,7 +105,8 @@ export const reAnalyze=async(req,res)=> {
         const doc = await Document.findOne({_id:id,user:user._id})
         if(!doc) return res.status(404).json({error:"Not Found"})
 
-        const annotations = await extractClausesFromText(doc.text)
+        const lang = (req.query && req.query.lang) || "en"
+        const annotations = await extractClausesFromText(doc.text, lang)
         doc.annotations=annotations
         await doc.save()
         res.json({id:doc._id,annotations})

@@ -10,6 +10,17 @@
   "feature_fast": "త్వరిత విశ్లేషణ",
   "feature_fast_desc": "సెకన్లలో హైలైట్లు పొందండి.",
   "get_started": "ప్రారంభించండి",
-  "login": "లాగిన్"
+  "login": "లాగిన్",
+  "clause_label": "క్లాజ్",
+  "clause": {
+    "termination": "రద్దు",
+    "payment": "చెల్లింపు",
+    "liability": "బాధ్యత",
+    "confidentiality": "గోప్యత",
+    "governing law": "పాలించే చట్టం",
+    "indemnification": "పరిహారం",
+    "dispute resolution": "వివాద పరిష్కారం",
+    "unknown": "తెలియదు"
+  }
 }
 

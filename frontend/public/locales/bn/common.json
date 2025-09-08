@@ -10,6 +10,17 @@
   "feature_fast": "দ্রুত বিশ্লেষণ",
   "feature_fast_desc": "সেকেন্ডের মধ্যে হাইলাইট।",
   "get_started": "শুরু করুন",
-  "login": "লগইন"
+  "login": "লগইন",
+  "clause_label": "ধারা",
+  "clause": {
+    "termination": "সমাপ্তি",
+    "payment": "প্রদান",
+    "liability": "দায়",
+    "confidentiality": "গোপনীয়তা",
+    "governing law": "প্রযোজ্য আইন",
+    "indemnification": "ক্ষতিপূরণ",
+    "dispute resolution": "বিরোধ নিষ্পত্তি",
+    "unknown": "অজানা"
+  }
 }
 

@@ -10,6 +10,17 @@
   "feature_fast": "ଦ୍ରୁତ ବିଶ୍ଳେଷଣ",
   "feature_fast_desc": "ସେକେଣ୍ଡରେ ହାଇଲାଇଟ୍।",
   "get_started": "ଆରମ୍ଭ କରନ୍ତୁ",
-  "login": "ଲଗ୍ ଇନ୍"
+  "login": "ଲଗ୍ ଇନ୍",
+  "clause_label": "ଧାରା",
+  "clause": {
+    "termination": "ସମାପ୍ତି",
+    "payment": "ପେମେଣ୍ଟ",
+    "liability": "ଦାୟିତ୍ଵ",
+    "confidentiality": "ଗୋପନୀୟତା",
+    "governing law": "ଲାଗୁଥିବା ଆଇନ",
+    "indemnification": "ପ୍ରତିପୂରଣ",
+    "dispute resolution": "ବିବାଦ ସମାଧାନ",
+    "unknown": "ଅଜଣା"
+  }
 }
 

@@ -10,6 +10,17 @@
   "feature_fast": "ઝડપી વિશ્લેષણ",
   "feature_fast_desc": "સેકન્ડોમાં હાઇલાઇટ્સ મેળવો.",
   "get_started": "શરૂ કરો",
-  "login": "લૉગિન"
+  "login": "લૉગિન",
+  "clause_label": "કલમ",
+  "clause": {
+    "termination": "સમાપ્તિ",
+    "payment": "ચુકવણી",
+    "liability": "જવાબદારી",
+    "confidentiality": "ગોપનીયતા",
+    "governing law": "પ્રભાવી કાયદો",
+    "indemnification": "હرجાનું",
+    "dispute resolution": "વિવાદ નિવારણ",
+    "unknown": "અજ્ઞાત"
+  }
 }
 

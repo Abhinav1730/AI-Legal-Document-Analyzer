@@ -8,8 +8,22 @@ export const authToken = {
   clear: () => { token = null; }
 };
 
+function withLang(url) {
+  try {
+    const saved = typeof window !== "undefined" ? localStorage.getItem("lang") : null;
+    const lang = saved || "en";
+    const hasQuery = url.includes("?");
+    const sep = hasQuery ? "&" : "?";
+    // avoid duplicate lang
+    if (url.includes("lang=")) return url;
+    return `${url}${sep}lang=${encodeURIComponent(lang)}`;
+  } catch {
+    return url;
+  }
+}
+
 export default async function request(url, options = {}) {
-  const res = await fetch(`${BASE_URL}${url}`, {
+  const res = await fetch(`${BASE_URL}${withLang(url)}`, {
     credentials: "include",
     headers: {
       ...(options.body instanceof FormData
@@ -49,7 +63,7 @@ export const api = {
   uploadDoc: (file) => {
     const fd = new FormData();
     fd.append("file", file);
-    return fetch(`${BASE_URL}/api/docs/upload`, {
+    return fetch(`${BASE_URL}${withLang(`/api/docs/upload`)}`, {
       method: "POST",
       body: fd,
       credentials: "include", // important!
@@ -66,8 +80,8 @@ export const api = {
   },
 
   analyzeDoc: (id) =>
-    request(`/api/docs/${id}/analyze`, { method: "POST" }),
+    request(withLang(`/api/docs/${id}/analyze`), { method: "POST" }),
 
   deleteDoc: (id) =>
-    request(`/api/docs/${id}`, { method: "DELETE" }),
+    request(withLang(`/api/docs/${id}`), { method: "DELETE" }),
 };

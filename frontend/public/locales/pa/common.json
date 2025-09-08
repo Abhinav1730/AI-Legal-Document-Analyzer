@@ -10,6 +10,17 @@
   "feature_fast": "ਤੇਜ਼ ਵਿਸ਼ਲੇਸ਼ਣ",
   "feature_fast_desc": "ਸੈਕਿੰਡਾਂ ਵਿੱਚ ਹਾਈਲਾਈਟ।",
   "get_started": "ਸ਼ੁਰੂ ਕਰੋ",
-  "login": "ਲਾਗਇਨ"
+  "login": "ਲਾਗਇਨ",
+  "clause_label": "ਧਾਰਾ",
+  "clause": {
+    "termination": "ਸਮਾਪਤੀ",
+    "payment": "ਭੁਗਤਾਨ",
+    "liability": "ਜਵਾਬਦੇਹੀ",
+    "confidentiality": "ਗੁਪਤਤਾ",
+    "governing law": "ਲਾਗੂ ਕਾਨੂੰਨ",
+    "indemnification": "ਹਰਜਾਨਾ",
+    "dispute resolution": "ਵਿਵਾਦ ਨਿਵੇੜ",
+    "unknown": "ਅਣਜਾਣ"
+  }
 }
 

@@ -10,6 +10,17 @@
   "feature_fast": "Fast Analysis",
   "feature_fast_desc": "Upload and get highlights in seconds with our optimized pipeline.",
   "get_started": "Get Started",
-  "login": "Login"
+  "login": "Login",
+  "clause_label": "Clause",
+  "clause": {
+    "termination": "Termination",
+    "payment": "Payment",
+    "liability": "Liability",
+    "confidentiality": "Confidentiality",
+    "governing law": "Governing law",
+    "indemnification": "Indemnification",
+    "dispute resolution": "Dispute resolution",
+    "unknown": "Unknown"
+  }
 }
 

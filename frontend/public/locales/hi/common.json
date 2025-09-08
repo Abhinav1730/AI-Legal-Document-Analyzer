@@ -10,6 +10,17 @@
   "feature_fast": "तेज़ विश्लेषण",
   "feature_fast_desc": "अपलोड करें और सेकंडों में हाइलाइट प्राप्त करें।",
   "get_started": "शुरू करें",
-  "login": "लॉगिन"
+  "login": "लॉगिन",
+  "clause_label": "धारा",
+  "clause": {
+    "termination": "समापन",
+    "payment": "भुगतान",
+    "liability": "दायित्व",
+    "confidentiality": "गोपनीयता",
+    "governing law": "प्रभावी कानून",
+    "indemnification": "प्रतिपूर्ति",
+    "dispute resolution": "विवाद निवारण",
+    "unknown": "अज्ञात"
+  }
 }
 

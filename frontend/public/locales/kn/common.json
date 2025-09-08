@@ -10,6 +10,17 @@
   "feature_fast": "ವೇಗದ ವಿಶ್ಲೇಷಣೆ",
   "feature_fast_desc": "ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಹೈಲೈಟ್‌ಗಳು.",
   "get_started": "ಪ್ರಾರಂಭಿಸಿ",
-  "login": "ಲಾಗಿನ್"
+  "login": "ಲಾಗಿನ್",
+  "clause_label": "ವಿಧಿ",
+  "clause": {
+    "termination": "ರದ್ದುಪಡಿಸುವಿಕೆ",
+    "payment": "ಪಾವತಿ",
+    "liability": "ಜವಾಬ್ದಾರಿ",
+    "confidentiality": "ಗೌಪ್ಯತೆ",
+    "governing law": "ಅನ್ವಯಿಸುವ ಕಾನೂನು",
+    "indemnification": "ಪರಿಹಾರ",
+    "dispute resolution": "ವಿವಾದ ಪರಿಹಾರ",
+    "unknown": "ಅಜ್ಞಾತ"
+  }
 }
 

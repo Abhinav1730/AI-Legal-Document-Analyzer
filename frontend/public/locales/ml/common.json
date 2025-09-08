@@ -10,6 +10,17 @@
   "feature_fast": "വേഗത്തിലുള്ള വിശകലനം",
   "feature_fast_desc": "സെക്കൻഡുകൾക്കുള്ളിൽ ഹൈലൈറ്റുകൾ ലഭിക്കും.",
   "get_started": "ആരംഭിക്കുക",
-  "login": "ലോഗിൻ"
+  "login": "ലോഗിൻ",
+  "clause_label": "ധാര",
+  "clause": {
+    "termination": "റദ്ദാക്കൽ",
+    "payment": "പേയ്മെന്റ്",
+    "liability": "ഉത്തരവാദിത്വം",
+    "confidentiality": "രഹസ്യത്വം",
+    "governing law": "പ്രാബല്യത്തിലുള്ള നിയമം",
+    "indemnification": "പരിഹാരം",
+    "dispute resolution": "വിഭാദ പരിഹാരം",
+    "unknown": "അജ്ഞാതം"
+  }
 }
 
