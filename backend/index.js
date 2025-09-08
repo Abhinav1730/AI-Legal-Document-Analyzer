@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 
 // 🔹 Routes
 import authRoutes from "./routes/auth.routes.js";
+import documentRoutes from "./routes/document.routes.js";
 
 dotenv.config();
 const app = express();
@@ -27,7 +28,7 @@ const clientURL = (process.env.CLIENT_URL || "http://localhost:3000").replace(/\
 // 🔹 Middlewares
 app.use(
   cors({
-    origin:"http://localhost:3000",
+    origin: clientURL,
     credentials: true,
   })
 );
@@ -56,6 +57,7 @@ connectDB();
 
 // 🔹 Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/docs", documentRoutes);
 
 app.get("/", (req, res) => {
   res.send("🚀 Backend running... Auth, File Upload & AI APIs ready!");

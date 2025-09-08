@@ -7,13 +7,13 @@ export default function HighlightModal({ doc, onClose }) {
     <AnimatePresence>
       {doc && (
         <motion.div
-          className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-6 z-50"
+          className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-6 z-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-[#142B47] rounded-2xl shadow-2xl w-full max-w-2xl p-6 relative border border-gray-700"
+            className="bg-white/5 backdrop-blur-xl rounded-2xl elevate w-full max-w-2xl p-6 relative border border-white/10"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 50, opacity: 0 }}
@@ -28,7 +28,7 @@ export default function HighlightModal({ doc, onClose }) {
             </button>
 
             {/* Title */}
-            <h2 className="text-2xl font-bold text-[#FFD700] mb-6 border-b border-gray-600 pb-2">
+            <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-2">
               {doc.filename}
             </h2>
 
@@ -38,9 +38,9 @@ export default function HighlightModal({ doc, onClose }) {
                 doc.annotations.map((a, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-[#1E3A5F] text-gray-200 shadow-sm hover:shadow-md transition"
+                    className="p-4 rounded-xl bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 transition"
                   >
-                    <span className="font-semibold text-[#FFD700]">
+                    <span className="font-semibold text-white">
                       Clause:
                     </span>{" "}
                     {a.text || a.summary_text}

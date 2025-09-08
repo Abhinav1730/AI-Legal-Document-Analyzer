@@ -8,7 +8,7 @@ const router = express.Router()
 router.post("/upload",isAuthenticated,upload.single("file"),uploadDocument)
 router.get("/",isAuthenticated,listDocuments)
 router.get("/:id",isAuthenticated,getDocuments)
-router.get("/:id",isAuthenticated,deleteDocument)
-router.get("/:id",isAuthenticated,reAnalyze)
+router.delete("/:id",isAuthenticated,deleteDocument)
+router.post("/:id/analyze",isAuthenticated,reAnalyze)
 
 export default router

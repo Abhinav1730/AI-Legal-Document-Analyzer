@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
-import { api } from "@/lib/api";
+import { api, authToken } from "@/lib/api";
 
 const AuthContext = createContext(null); // <-- give default value
 
@@ -29,8 +29,20 @@ export function AuthProvider({ children }) {
     window.location.href = "/";
   };
 
+  const login = async (email, password) => {
+    const res = await api.login({ email, password });
+    setUser(res.user || null);
+    return res;
+  }
+
+  const register = async (name, email, password) => {
+    const res = await api.register({ name, email, password });
+    setUser(res.user || null);
+    return res;
+  }
+
   return (
-    <AuthContext.Provider value={{ user, setUser, logout, loading }}>
+    <AuthContext.Provider value={{ user, setUser, logout, loading, login, register }}>
       {children}
     </AuthContext.Provider>
   );
