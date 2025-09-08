@@ -3,6 +3,7 @@ import fs from "fs"
 import Document from "../models/document.model.js"
 import extractFile from "../utilities/fileParser.js"
 import extractClausesFromText from "../utilities/huggingFace.js"
+import { t } from "../utilities/translations.js"
 import { fileURLToPath } from "url"
 
 const __filename = fileURLToPath(import.meta.url)
@@ -11,6 +12,7 @@ const __dirname = path.dirname(__filename)
 export const uploadDocument=async (req,res)=>{
     try {
         const user = req.user
+        const lang = (req.query && req.query.lang) || "en"
         if(!user) return res.status(401).json({error:"Unauthorized User"})
         
         let textContent = ""
@@ -37,7 +39,7 @@ export const uploadDocument=async (req,res)=>{
         })
 
         await doc.save()
-        return res.json({id:doc._id,annotations:doc.annotations})
+        return res.json({message:t(lang,"upload_success","Uploaded successfully"), id:doc._id,annotations:doc.annotations})
     } catch (error) {
         console.error("Upload Document Error : ",error)
         res.status(500).json({error:"Server Error"})
@@ -86,7 +88,8 @@ export const deleteDocument=async(req,res)=> {
             const fp = path.join(__dirname,"..","uploads",doc.fileName)
             if(fs.existsSync(fp)) fs.unlinkSync(fp)
         }
-        res.json({message:"Deleted"})
+        const lang = (req.query && req.query.lang) || "en"
+        res.json({message:t(lang, "deleted", "Deleted")})
     } catch (error) {
         console.error(error)
         res.status(500).json({error:"Server Error"})

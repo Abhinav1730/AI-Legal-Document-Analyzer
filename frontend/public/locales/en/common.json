@@ -1,0 +1,15 @@
+{
+  "welcome": "LEGALYZER",
+  "hero_subtitle": "Upload contracts, agreements, or policies and let our AI highlight key clauses and risks. Secure, smart, and simple.",
+  "feature_clause": "Clause Extraction",
+  "feature_clause_desc": "Detects termination, payment, arbitration, and confidentiality clauses.",
+  "feature_risk": "Risk Summaries",
+  "feature_risk_desc": "Summarizes potential risks to help you focus on what matters.",
+  "feature_secure": "Secure Storage",
+  "feature_secure_desc": "Your files are securely stored and only accessible to you.",
+  "feature_fast": "Fast Analysis",
+  "feature_fast_desc": "Upload and get highlights in seconds with our optimized pipeline.",
+  "get_started": "Get Started",
+  "login": "Login"
+}
+

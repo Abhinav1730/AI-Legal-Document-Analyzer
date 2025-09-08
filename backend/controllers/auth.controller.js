@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
+import { t } from "../utilities/translations.js";
 
 const JWT_SECRET = process.env.JWT_SECRET || "dev_secret";
 const JWT_EXPIRES_IN = "7d";
@@ -12,6 +13,7 @@ const signToken = (user) => {
 export const register = async (req, res) => {
     try {
         const { name, email, password } = req.body || {};
+        const lang = (req.query && req.query.lang) || "en";
         if(!email || !password) return res.status(400).json({ error: "Email and password are required" });
 
         const existing = await User.findOne({ email });
@@ -21,7 +23,7 @@ export const register = async (req, res) => {
         const user = await User.create({ name: name || email.split("@")[0], email, passwordHash });
 
         const token = signToken(user);
-        res.json({ user: { id: user._id, name: user.name, email: user.email }, token });
+        res.json({ message: t(lang, "welcome", "Welcome"), user: { id: user._id, name: user.name, email: user.email }, token });
     } catch (err) {
         res.status(500).json({ error: "Registration failed" });
     }
@@ -30,6 +32,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body || {};
+        const lang = (req.query && req.query.lang) || "en";
         if(!email || !password) return res.status(400).json({ error: "Email and password are required" });
 
         const user = await User.findOne({ email }).select("+passwordHash name email");
@@ -38,7 +41,7 @@ export const login = async (req, res) => {
         if(!ok) return res.status(401).json({ error: "Invalid credentials" });
 
         const token = signToken(user);
-        res.json({ user: { id: user._id, name: user.name, email: user.email }, token });
+        res.json({ message: t(lang, "welcome", "Welcome"), user: { id: user._id, name: user.name, email: user.email }, token });
     } catch (err) {
         res.status(500).json({ error: "Login failed" });
     }

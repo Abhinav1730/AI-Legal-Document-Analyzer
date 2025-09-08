@@ -1,7 +1,9 @@
 "use client";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const HomePage = () => {
+  const { t } = useTranslation();
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 sm:px-12 bg-[var(--background)]">
       {/* Background Accent */}
@@ -13,29 +15,26 @@ const HomePage = () => {
           LEGALYZER
         </h1>
         <h3 className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-10">
-          Upload <span className="text-[var(--foreground)] font-semibold">contracts, agreements, or policies</span>
-          and let our AI highlight key clauses like {""}
-          <span className="text-[var(--foreground)] font-semibold">termination, payments,</span> and {""}
-          <span className="text-[var(--foreground)] font-semibold">risks</span>. Secure, smart, and simple.
+          {t("hero_subtitle", { defaultValue: "Upload contracts, agreements, or policies and let our AI highlight key clauses and risks. Secure, smart, and simple." })}
         </h3>
 
         {/* Key capabilities */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
           <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
-            <h4 className="text-[var(--foreground)] font-semibold mb-2">Clause Extraction</h4>
-            <p className="text-gray-400 text-sm">Detects termination, payment, arbitration, and confidentiality clauses.</p>
+            <h4 className="text-[var(--foreground)] font-semibold mb-2">{t("feature_clause", { defaultValue: "Clause Extraction" })}</h4>
+            <p className="text-gray-400 text-sm">{t("feature_clause_desc", { defaultValue: "Detects termination, payment, arbitration, and confidentiality clauses." })}</p>
           </div>
           <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
-            <h4 className="text-[var(--foreground)] font-semibold mb-2">Risk Summaries</h4>
-            <p className="text-gray-400 text-sm">Summarizes potential risks to help you focus on what matters.</p>
+            <h4 className="text-[var(--foreground)] font-semibold mb-2">{t("feature_risk", { defaultValue: "Risk Summaries" })}</h4>
+            <p className="text-gray-400 text-sm">{t("feature_risk_desc", { defaultValue: "Summarizes potential risks to help you focus on what matters." })}</p>
           </div>
           <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
-            <h4 className="text-[var(--foreground)] font-semibold mb-2">Secure Storage</h4>
-            <p className="text-gray-400 text-sm">Your files are securely stored and only accessible to you.</p>
+            <h4 className="text-[var(--foreground)] font-semibold mb-2">{t("feature_secure", { defaultValue: "Secure Storage" })}</h4>
+            <p className="text-gray-400 text-sm">{t("feature_secure_desc", { defaultValue: "Your files are securely stored and only accessible to you." })}</p>
           </div>
           <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
-            <h4 className="text-[var(--foreground)] font-semibold mb-2">Fast Analysis</h4>
-            <p className="text-gray-400 text-sm">Upload and get highlights in seconds with our optimized pipeline.</p>
+            <h4 className="text-[var(--foreground)] font-semibold mb-2">{t("feature_fast", { defaultValue: "Fast Analysis" })}</h4>
+            <p className="text-gray-400 text-sm">{t("feature_fast_desc", { defaultValue: "Upload and get highlights in seconds with our optimized pipeline." })}</p>
           </div>
           <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
             <h4 className="text-[var(--foreground)] font-semibold mb-2">Export & Share</h4>

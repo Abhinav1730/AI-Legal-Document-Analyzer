@@ -1,6 +1,7 @@
 import "./globals.css";
 import { AuthProvider } from "../context/AuthContext";
 import { ThemeProvider } from "../context/ThemeContext";
+import I18nProvider from "../context/I18nProvider.jsx";
 import Navbar from "../components/Navbar";
 
 export const metadata = {
@@ -13,15 +14,17 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans">
         <ThemeProvider>
-          <AuthProvider>
-            <Navbar />
-            {/* Decorative blurred gradients */}
-            <div className="pointer-events-none fixed inset-0 -z-10">
-              <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
-              <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
-            </div>
-            <main className="container mx-auto p-6">{children}</main>
-          </AuthProvider>
+          <I18nProvider>
+            <AuthProvider>
+              <Navbar />
+              {/* Decorative blurred gradients */}
+              <div className="pointer-events-none fixed inset-0 -z-10">
+                <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+                <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+              </div>
+              <main className="container mx-auto p-6">{children}</main>
+            </AuthProvider>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>
