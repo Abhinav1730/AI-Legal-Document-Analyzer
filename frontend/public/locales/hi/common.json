@@ -21,6 +21,54 @@
     "indemnification": "प्रतिपूर्ति",
     "dispute resolution": "विवाद निवारण",
     "unknown": "अज्ञात"
+  },
+  "dashboard": {
+    "title": "आपके कानूनी दस्तावेज़",
+    "login_required": "कृपया पहले लॉगिन करें।",
+    "login_required_desc": "लॉगिन के बाद अपने सुरक्षित दस्तावेज़ों तक पहुंचें।",
+    "analysis_summary": "विश्लेषण सारांश",
+    "total_documents": "कुल दस्तावेज़",
+    "analyzed": "विश्लेषित",
+    "pending_analysis": "विश्लेषण लंबित",
+    "loading_documents": "दस्तावेज़ लोड हो रहे हैं...",
+    "uploaded": "अपलोड किया गया",
+    "clauses_found": "धाराएं मिलीं",
+    "analysis_pending": "विश्लेषण लंबित",
+    "view": "देखें",
+    "loading": "लोड हो रहा है...",
+    "analyze": "विश्लेषण करें",
+    "analyzing": "विश्लेषण हो रहा है...",
+    "delete": "हटाएं",
+    "no_documents": "अभी तक कोई दस्तावेज़ अपलोड नहीं किया गया।",
+    "no_documents_desc": "शुरू करने के लिए अनुबंध, समझौते या नीतियां अपलोड करें।"
+  },
+  "file_upload": {
+    "uploading": "दस्तावेज़ अपलोड हो रहा है...",
+    "success": "दस्तावेज़ सफलतापूर्वक अपलोड हो गया! कानूनी धाराएं निकालने के लिए \"विश्लेषण\" पर क्लिक करें।",
+    "error": "अपलोड विफल। कृपया पुनः प्रयास करें।",
+    "drop_files": "फ़ाइलें यहां छोड़ें...",
+    "drag_drop": "कानूनी दस्तावेज़ यहां खींचें और छोड़ें, या अपलोड करने के लिए क्लिक करें",
+    "file_types": "(PDF, DOCX, Images)"
+  },
+  "document_modal": {
+    "analysis_complete": "विश्लेषण पूर्ण",
+    "analysis_pending": "विश्लेषण लंबित",
+    "clauses_found": "धाराएं मिलीं",
+    "no_analysis": "कोई विश्लेषण उपलब्ध नहीं",
+    "found_clauses": "{count} कानूनी धाराएं मिलीं:",
+    "confidence": "विश्वसनीयता",
+    "document_text": "दस्तावेज़ पाठ",
+    "showing_preview": "पहले 1000 अक्षर दिखाए जा रहे हैं। पूरा पाठ डेटाबेस में उपलब्ध है।",
+    "ai_analysis_available": "AI विश्लेषण उपलब्ध",
+    "ai_analysis_desc": "Google Gemini AI का उपयोग करके कानूनी धाराएं निकालने के लिए दस्तावेज़ कार्ड पर \"विश्लेषण\" बटन पर क्लिक करें।",
+    "no_content": "कोई सामग्री उपलब्ध नहीं।",
+    "unknown_clause": "अज्ञात धारा"
+  },
+  "navbar": {
+    "documents": "दस्तावेज़",
+    "your_documents": "आपके दस्तावेज़",
+    "no_documents_yet": "अभी तक कोई दस्तावेज़ नहीं",
+    "upload_first": "अपना पहला दस्तावेज़ अपलोड करें"
   }
 }
 

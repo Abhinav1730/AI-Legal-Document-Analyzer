@@ -23,24 +23,40 @@ function withLang(url) {
 }
 
 export default async function request(url, options = {}) {
-  const res = await fetch(`${BASE_URL}${withLang(url)}`, {
-    credentials: "include",
-    headers: {
-      ...(options.body instanceof FormData
-        ? {}
-        : { "Content-Type": "application/json" }),
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...options.headers,
-    },
-    ...options,
-  });
+  const fullUrl = `${BASE_URL}${withLang(url)}`;
+  console.log('Making request to:', fullUrl, 'with options:', options);
+  
+  try {
+    const res = await fetch(fullUrl, {
+      credentials: "include",
+      headers: {
+        ...(options.body instanceof FormData
+          ? {}
+          : { "Content-Type": "application/json" }),
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        ...options.headers,
+      },
+      ...options,
+    });
 
-  if (!res.ok) {
-    const errorText = await res.text();
-    throw new Error(errorText || "API Error");
+    console.log('Response status:', res.status, 'ok:', res.ok);
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      console.error('API Error:', res.status, errorText);
+      throw new Error(errorText || `API Error: ${res.status}`);
+    }
+
+    const result = await res.json();
+    console.log('Request successful:', result);
+    return result;
+  } catch (error) {
+    console.error('Request failed:', error);
+    if (error.name === 'TypeError' && error.message.includes('fetch')) {
+      throw new Error('Network error: Unable to connect to server. Please check if the backend is running.');
+    }
+    throw error;
   }
-
-  return res.json();
 }
 
 export const api = {
@@ -58,11 +74,23 @@ export const api = {
   },
 
   // 🔹 Documents
-  getDocs: () => request("/api/docs"),
+  getDocs: async () => {
+    console.log('API getDocs called, token:', token ? 'present' : 'missing');
+    try {
+      const result = await request("/api/docs");
+      console.log('getDocs result:', result);
+      return result;
+    } catch (error) {
+      console.error('getDocs error:', error);
+      throw error;
+    }
+  },
+
 
   uploadDoc: (file) => {
     const fd = new FormData();
     fd.append("file", file);
+    console.log('API uploadDoc called with file:', file.name, 'token:', token ? 'present' : 'missing');
     return fetch(`${BASE_URL}${withLang(`/api/docs/upload`)}`, {
       method: "POST",
       body: fd,
@@ -71,16 +99,32 @@ export const api = {
         ...(token ? { Authorization: `Bearer ${token}` } : {}),
       }
     }).then(async (res) => {
+      console.log('Upload response status:', res.status);
       if (!res.ok) {
         const errorText = await res.text();
+        console.error('Upload error response:', errorText);
         throw new Error(errorText || "Upload failed");
       }
-      return res.json();
+      const result = await res.json();
+      console.log('Upload success:', result);
+      return result;
     });
   },
 
-  analyzeDoc: (id) =>
-    request(withLang(`/api/docs/${id}/analyze`), { method: "POST" }),
+  getDoc: (id) =>
+    request(withLang(`/api/docs/${id}`)),
+
+  analyzeDoc: async (id) => {
+    console.log('API analyzeDoc called with id:', id);
+    try {
+      const result = await request(withLang(`/api/docs/${id}/analyze`), { method: "POST" });
+      console.log('analyzeDoc result:', result);
+      return result;
+    } catch (error) {
+      console.error('analyzeDoc error:', error);
+      throw error;
+    }
+  },
 
   deleteDoc: (id) =>
     request(withLang(`/api/docs/${id}`), { method: "DELETE" }),

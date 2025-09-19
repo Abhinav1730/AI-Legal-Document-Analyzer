@@ -21,6 +21,53 @@
     "indemnification": "ক্ষতিপূরণ",
     "dispute resolution": "বিরোধ নিষ্পত্তি",
     "unknown": "অজানা"
+  },
+  "dashboard": {
+    "title": "আপনার আইনি নথি",
+    "login_required": "অনুগ্রহ করে প্রথমে লগইন করুন।",
+    "login_required_desc": "লগইনের পর আপনার নিরাপদ নথিগুলিতে অ্যাক্সেস করুন।",
+    "analysis_summary": "বিশ্লেষণ সারসংক্ষেপ",
+    "total_documents": "মোট নথি",
+    "analyzed": "বিশ্লেষিত",
+    "pending_analysis": "বিশ্লেষণ মুলতবি",
+    "loading_documents": "নথি লোড হচ্ছে...",
+    "uploaded": "আপলোড করা হয়েছে",
+    "clauses_found": "ধারা পাওয়া গেছে",
+    "analysis_pending": "বিশ্লেষণ মুলতবি",
+    "view": "দেখুন",
+    "loading": "লোড হচ্ছে...",
+    "analyze": "বিশ্লেষণ করুন",
+    "analyzing": "বিশ্লেষণ হচ্ছে...",
+    "delete": "মুছুন",
+    "no_documents": "এখনো কোনো নথি আপলোড করা হয়নি।",
+    "no_documents_desc": "শুরু করতে চুক্তি, চুক্তি বা নীতি আপলোড করুন।"
+  },
+  "file_upload": {
+    "uploading": "নথি আপলোড হচ্ছে...",
+    "success": "নথি সফলভাবে আপলোড হয়েছে! আইনি ধারা বের করতে \"বিশ্লেষণ\" ক্লিক করুন।",
+    "error": "আপলোড ব্যর্থ। অনুগ্রহ করে আবার চেষ্টা করুন।",
+    "drop_files": "ফাইল এখানে ফেলুন...",
+    "drag_drop": "আইনি নথি এখানে টেনে আনুন, বা আপলোড করতে ক্লিক করুন",
+    "file_types": "(PDF, DOCX, Images)"
+  },
+  "document_modal": {
+    "analysis_complete": "বিশ্লেষণ সম্পূর্ণ",
+    "analysis_pending": "বিশ্লেষণ মুলতবি",
+    "clauses_found": "ধারা পাওয়া গেছে",
+    "no_analysis": "কোনো বিশ্লেষণ উপলব্ধ নেই",
+    "found_clauses": "{count} আইনি ধারা পাওয়া গেছে:",
+    "confidence": "আস্থা",
+    "document_text": "নথির পাঠ্য",
+    "showing_preview": "প্রথম 1000 অক্ষর দেখানো হচ্ছে। সম্পূর্ণ পাঠ্য ডেটাবেসে উপলব্ধ।",
+    "ai_analysis_available": "AI বিশ্লেষণ উপলব্ধ",
+    "ai_analysis_desc": "Google Gemini AI ব্যবহার করে আইনি ধারা বের করতে নথি কার্ডে \"বিশ্লেষণ\" বোতাম ক্লিক করুন।",
+    "no_content": "কোনো বিষয়বস্তু উপলব্ধ নেই।",
+    "unknown_clause": "অজানা ধারা"
+  },
+  "navbar": {
+    "documents": "নথি",
+    "your_documents": "আপনার নথি",
+    "no_documents_yet": "এখনো কোনো নথি নেই",
+    "upload_first": "আপনার প্রথম নথি আপলোড করুন"
   }
 }
-

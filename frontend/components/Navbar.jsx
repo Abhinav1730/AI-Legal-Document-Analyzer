@@ -1,9 +1,10 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 import { useTranslation } from "react-i18next";
-import { Menu, X, Sun, Moon, ChevronDown } from "lucide-react";
+import { Menu, X, Sun, Moon, ChevronDown, FileText, Eye } from "lucide-react";
+import { api } from "../lib/api";
 
 const LANGS = [
   { code: "en", label: "English" },
@@ -25,12 +26,51 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const [langOpen, setLangOpen] = useState(false);
+  const [docsOpen, setDocsOpen] = useState(false);
+  const [documents, setDocuments] = useState([]);
+  const [loadingDocs, setLoadingDocs] = useState(false);
 
   const changeLang = (code) => {
     i18n.changeLanguage(code);
     try { localStorage.setItem("lang", code); } catch {}
     setLangOpen(false);
   }
+
+  // Fetch documents for dropdown
+  const fetchDocuments = async () => {
+    if (!user) return;
+    
+    setLoadingDocs(true);
+    try {
+      const docs = await api.getDocs();
+      setDocuments(docs || []);
+    } catch (error) {
+      console.error('Error fetching documents:', error);
+      setDocuments([]);
+    } finally {
+      setLoadingDocs(false);
+    }
+  };
+
+  // Fetch documents when user logs in
+  useEffect(() => {
+    if (user) {
+      fetchDocuments();
+    } else {
+      setDocuments([]);
+    }
+  }, [user]);
+
+  // View document function
+  const viewDocument = async (doc) => {
+    try {
+      const fullDoc = await api.getDoc(doc._id);
+      // Open in new tab or handle as needed
+      window.open(`/dashboard?view=${doc._id}`, '_blank');
+    } catch (error) {
+      console.error('Error fetching document:', error);
+    }
+  };
 
   const basePanel = theme === "dark"
     ? "bg-black/90 text-white border border-white/10"
@@ -51,6 +91,76 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-4">
+          {/* Documents dropdown */}
+          {user && (
+            <div className="relative">
+              <button
+                aria-label="Documents"
+                onClick={() => {
+                  setDocsOpen((v) => !v);
+                  if (!docsOpen) fetchDocuments();
+                }}
+                className={`px-3 py-2 rounded-lg transition flex items-center gap-2 ${baseBtn}`}
+              >
+                <FileText size={16} />
+                <span>{t("navbar.documents")} ({documents.length})</span>
+                <ChevronDown size={16} />
+              </button>
+              {docsOpen && (
+                <div className={`absolute right-0 mt-2 w-80 rounded-lg shadow-xl ${basePanel} max-h-96 overflow-hidden`}
+                     onMouseLeave={() => setDocsOpen(false)}>
+                  <div className="p-3 border-b border-white/10">
+                    <h3 className="font-semibold text-sm text-gray-300">{t("navbar.your_documents")}</h3>
+                  </div>
+                  <div className="max-h-72 overflow-y-auto">
+                    {loadingDocs ? (
+                      <div className="p-4 text-center text-gray-400">
+                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mx-auto mb-2"></div>
+                        {t("dashboard.loading_documents")}
+                      </div>
+                    ) : documents.length > 0 ? (
+                      <ul className="py-1">
+                        {documents.map((doc) => (
+                          <li key={doc._id}>
+                            <button
+                              className="w-full text-left px-3 py-3 hover:bg-white/5 transition flex items-center justify-between group"
+                              onClick={() => {
+                                viewDocument(doc);
+                                setDocsOpen(false);
+                              }}
+                            >
+                              <div className="flex items-center space-x-3 min-w-0 flex-1">
+                                <FileText size={16} className="text-blue-400 flex-shrink-0" />
+                                <div className="min-w-0 flex-1">
+                                  <div className="text-sm font-medium text-white truncate">
+                                    {doc.originalName}
+                                  </div>
+                                  <div className="text-xs text-gray-400">
+                                    {doc.annotations && doc.annotations.length > 0 
+                                      ? `${doc.annotations.length} {t("dashboard.clauses_found")}` 
+                                      : '{t("dashboard.analysis_pending")}'
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                              <Eye size={14} className="text-gray-400 group-hover:text-white transition flex-shrink-0" />
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="p-4 text-center text-gray-400">
+                        <FileText size={24} className="mx-auto mb-2 opacity-50" />
+                        <p className="text-sm">{t("navbar.no_documents_yet")}</p>
+                        <p className="text-xs">{t("navbar.upload_first")}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Language custom dropdown */}
           <div className="relative">
             <button
@@ -144,6 +254,78 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-black/70 backdrop-blur-xl px-6 py-4 space-y-4 border-t border-white/10">
+          {/* Mobile documents dropdown */}
+          {user && (
+            <div className="relative">
+              <button
+                aria-label="Documents"
+                onClick={() => {
+                  setDocsOpen((v) => !v);
+                  if (!docsOpen) fetchDocuments();
+                }}
+                className={`w-full justify-between px-3 py-2 rounded-lg transition flex items-center gap-2 ${baseBtn}`}
+              >
+                <div className="flex items-center gap-2">
+                  <FileText size={16} />
+                  <span>Documents ({documents.length})</span>
+                </div>
+                <ChevronDown size={16} />
+              </button>
+              {docsOpen && (
+                <div className={`mt-2 w-full rounded-lg shadow-xl ${basePanel} max-h-64 overflow-hidden`}>
+                  <div className="p-3 border-b border-white/10">
+                    <h3 className="font-semibold text-sm text-gray-300">Your Documents</h3>
+                  </div>
+                  <div className="max-h-48 overflow-y-auto">
+                    {loadingDocs ? (
+                      <div className="p-4 text-center text-gray-400">
+                        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mx-auto mb-2"></div>
+                        Loading documents...
+                      </div>
+                    ) : documents.length > 0 ? (
+                      <ul className="py-1">
+                        {documents.map((doc) => (
+                          <li key={doc._id}>
+                            <button
+                              className="w-full text-left px-3 py-3 hover:bg-white/5 transition flex items-center justify-between group"
+                              onClick={() => {
+                                viewDocument(doc);
+                                setDocsOpen(false);
+                                setIsOpen(false);
+                              }}
+                            >
+                              <div className="flex items-center space-x-3 min-w-0 flex-1">
+                                <FileText size={16} className="text-blue-400 flex-shrink-0" />
+                                <div className="min-w-0 flex-1">
+                                  <div className="text-sm font-medium text-white truncate">
+                                    {doc.originalName}
+                                  </div>
+                                  <div className="text-xs text-gray-400">
+                                    {doc.annotations && doc.annotations.length > 0 
+                                      ? `${doc.annotations.length} {t("dashboard.clauses_found")}` 
+                                      : '{t("dashboard.analysis_pending")}'
+                                    }
+                                  </div>
+                                </div>
+                              </div>
+                              <Eye size={14} className="text-gray-400 group-hover:text-white transition flex-shrink-0" />
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="p-4 text-center text-gray-400">
+                        <FileText size={24} className="mx-auto mb-2 opacity-50" />
+                        <p className="text-sm">{t("navbar.no_documents_yet")}</p>
+                        <p className="text-xs">{t("navbar.upload_first")}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Mobile language dropdown */}
           <div className="relative">
             <button

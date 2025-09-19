@@ -21,6 +21,53 @@
     "indemnification": "હرجાનું",
     "dispute resolution": "વિવાદ નિવારણ",
     "unknown": "અજ્ઞાત"
+  },
+  "dashboard": {
+    "title": "તમારા કાનૂની દસ્તાવેજો",
+    "login_required": "કૃપા કરીને પહેલા લોગિન કરો.",
+    "login_required_desc": "લોગિન કર્યા પછી તમારા સુરક્ષિત દસ્તાવેજોને એક્સેસ કરો.",
+    "analysis_summary": "વિશ્લેષણ સારાંશ",
+    "total_documents": "કુલ દસ્તાવેજો",
+    "analyzed": "વિશ્લેષિત",
+    "pending_analysis": "વિશ્લેષણ બાકી",
+    "loading_documents": "દસ્તાવેજો લોડ થઈ રહ્યા છે...",
+    "uploaded": "અપલોડ કર્યું",
+    "clauses_found": "કલમો મળી",
+    "analysis_pending": "વિશ્લેષણ બાકી",
+    "view": "જુઓ",
+    "loading": "લોડ થઈ રહ્યું છે...",
+    "analyze": "વિશ્લેષણ કરો",
+    "analyzing": "વિશ્લેષણ થઈ રહ્યું છે...",
+    "delete": "ડિલીટ કરો",
+    "no_documents": "હજુ સુધી કોઈ દસ્તાવેજો અપલોડ કર્યા નથી.",
+    "no_documents_desc": "શરૂ કરવા માટે કરારો, કરારો અથવા નીતિઓ અપલોડ કરો."
+  },
+  "file_upload": {
+    "uploading": "દસ્તાવેજ અપલોડ થઈ રહ્યો છે...",
+    "success": "દસ્તાવેજ સફળતાપૂર્વક અપલોડ થયો! કાનૂની કલમો કાઢવા માટે \"વિશ્લેષણ\" ક્લિક કરો.",
+    "error": "અપલોડ નિષ્ફળ. કૃપા કરીને ફરી પ્રયાસ કરો.",
+    "drop_files": "ફાઇલો અહીં છોડો...",
+    "drag_drop": "કાનૂની દસ્તાવેજો અહીં ખેંચો અને છોડો, અથવા અપલોડ કરવા માટે ક્લિક કરો",
+    "file_types": "(PDF, DOCX, Images)"
+  },
+  "document_modal": {
+    "analysis_complete": "વિશ્લેષણ પૂર્ણ",
+    "analysis_pending": "વિશ્લેષણ બાકી",
+    "clauses_found": "કલમો મળી",
+    "no_analysis": "કોઈ વિશ્લેષણ ઉપલબ્ધ નથી",
+    "found_clauses": "{count} કાનૂની કલમો મળી:",
+    "confidence": "વિશ્વાસ",
+    "document_text": "દસ્તાવેજ ટેક્સ્ટ",
+    "showing_preview": "પહેલા 1000 અક્ષરો બતાવી રહ્યા છીએ. સંપૂર્ણ ટેક્સ્ટ ડેટાબેસમાં ઉપલબ્ધ છે.",
+    "ai_analysis_available": "AI વિશ્લેષણ ઉપલબ્ધ",
+    "ai_analysis_desc": "Google Gemini AI નો ઉપયોગ કરીને કાનૂની કલમો કાઢવા માટે દસ્તાવેજ કાર્ડ પર \"વિશ્લેષણ\" બટન ક્લિક કરો.",
+    "no_content": "કોઈ સામગ્રી ઉપલબ્ધ નથી.",
+    "unknown_clause": "અજ્ઞાત કલમ"
+  },
+  "navbar": {
+    "documents": "દસ્તાવેજો",
+    "your_documents": "તમારા દસ્તાવેજો",
+    "no_documents_yet": "હજુ સુધી કોઈ દસ્તાવેજો નથી",
+    "upload_first": "તમારો પહેલો દસ્તાવેજ અપલોડ કરો"
   }
 }
-

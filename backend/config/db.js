@@ -10,13 +10,10 @@ export default async function connectDB() {
 
 try {
     mongoose.set("strictQuery", false);
-    await mongoose
-      .connect(uri)
-      console.log("Mongodb Connection Done");
-        
-       
+    await mongoose.connect(uri);
+    console.log("Mongodb Connection Done");
 } catch (error) {
-  console.log("Mongo Connection Error:");
-   process.exit(1);
+  console.log("Mongo Connection Error:", error);
+  process.exit(1);
 }
 }

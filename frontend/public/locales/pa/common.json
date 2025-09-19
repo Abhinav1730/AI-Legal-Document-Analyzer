@@ -21,6 +21,53 @@
     "indemnification": "ਹਰਜਾਨਾ",
     "dispute resolution": "ਵਿਵਾਦ ਨਿਵੇੜ",
     "unknown": "ਅਣਜਾਣ"
+  },
+  "dashboard": {
+    "title": "ਤੁਹਾਡੇ ਕਾਨੂੰਨੀ ਦਸਤਾਵੇਜ਼",
+    "login_required": "ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਲੌਗਿਨ ਕਰੋ।",
+    "login_required_desc": "ਲੌਗਿਨ ਕਰਨ ਤੋਂ ਬਾਅਦ ਆਪਣੇ ਸੁਰੱਖਿਤ ਦਸਤਾਵੇਜ਼ਾਂ ਤੱਕ ਪਹੁੰਚ ਕਰੋ।",
+    "analysis_summary": "ਵਿਸ਼ਲੇਸ਼ਣ ਸਾਰ",
+    "total_documents": "ਕੁੱਲ ਦਸਤਾਵੇਜ਼",
+    "analyzed": "ਵਿਸ਼ਲੇਸ਼ਿਤ",
+    "pending_analysis": "ਵਿਸ਼ਲੇਸ਼ਣ ਬਾਕੀ",
+    "loading_documents": "ਦਸਤਾਵੇਜ਼ ਲੋਡ ਹੋ ਰਹੇ ਹਨ...",
+    "uploaded": "ਅਪਲੋਡ ਕੀਤਾ",
+    "clauses_found": "ਧਾਰਾਵਾਂ ਮਿਲੀਆਂ",
+    "analysis_pending": "ਵਿਸ਼ਲੇਸ਼ਣ ਬਾਕੀ",
+    "view": "ਦੇਖੋ",
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "analyze": "ਵਿਸ਼ਲੇਸ਼ਣ ਕਰੋ",
+    "analyzing": "ਵਿਸ਼ਲੇਸ਼ਣ ਹੋ ਰਿਹਾ ਹੈ...",
+    "delete": "ਮਿਟਾਓ",
+    "no_documents": "ਅਜੇ ਤੱਕ ਕੋਈ ਦਸਤਾਵੇਜ਼ ਅਪਲੋਡ ਨਹੀਂ ਕੀਤੇ।",
+    "no_documents_desc": "ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਇਕਰਾਰਨਾਮੇ, ਸਮਝੌਤੇ ਜਾਂ ਨੀਤੀਆਂ ਅਪਲੋਡ ਕਰੋ।"
+  },
+  "file_upload": {
+    "uploading": "ਦਸਤਾਵੇਜ਼ ਅਪਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "success": "ਦਸਤਾਵੇਜ਼ ਸਫਲਤਾਪੂਰਵਕ ਅਪਲੋਡ ਹੋਇਆ! ਕਾਨੂੰਨੀ ਧਾਰਾਵਾਂ ਕੱਢਣ ਲਈ \"ਵਿਸ਼ਲੇਸ਼ਣ\" ਕਲਿਕ ਕਰੋ।",
+    "error": "ਅਪਲੋਡ ਅਸਫਲ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    "drop_files": "ਫਾਈਲਾਂ ਇੱਥੇ ਸੁੱਟੋ...",
+    "drag_drop": "ਕਾਨੂੰਨੀ ਦਸਤਾਵੇਜ਼ ਇੱਥੇ ਖਿੱਚੋ ਅਤੇ ਸੁੱਟੋ, ਜਾਂ ਅਪਲੋਡ ਕਰਨ ਲਈ ਕਲਿਕ ਕਰੋ",
+    "file_types": "(PDF, DOCX, Images)"
+  },
+  "document_modal": {
+    "analysis_complete": "ਵਿਸ਼ਲੇਸ਼ਣ ਪੂਰਾ",
+    "analysis_pending": "ਵਿਸ਼ਲੇਸ਼ਣ ਬਾਕੀ",
+    "clauses_found": "ਧਾਰਾਵਾਂ ਮਿਲੀਆਂ",
+    "no_analysis": "ਕੋਈ ਵਿਸ਼ਲੇਸ਼ਣ ਉਪਲਬਧ ਨਹੀਂ",
+    "found_clauses": "{count} ਕਾਨੂੰਨੀ ਧਾਰਾਵਾਂ ਮਿਲੀਆਂ:",
+    "confidence": "ਵਿਸ਼ਵਾਸ",
+    "document_text": "ਦਸਤਾਵੇਜ਼ ਟੈਕਸਟ",
+    "showing_preview": "ਪਹਿਲੇ 1000 ਅੱਖਰ ਦਿਖਾਏ ਜਾ ਰਹੇ ਹਨ। ਪੂਰਾ ਟੈਕਸਟ ਡੇਟਾਬੇਸ ਵਿੱਚ ਉਪਲਬਧ ਹੈ।",
+    "ai_analysis_available": "AI ਵਿਸ਼ਲੇਸ਼ਣ ਉਪਲਬਧ",
+    "ai_analysis_desc": "Google Gemini AI ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕਾਨੂੰਨੀ ਧਾਰਾਵਾਂ ਕੱਢਣ ਲਈ ਦਸਤਾਵੇਜ਼ ਕਾਰਡ 'ਤੇ \"ਵਿਸ਼ਲੇਸ਼ਣ\" ਬਟਨ ਕਲਿਕ ਕਰੋ।",
+    "no_content": "ਕੋਈ ਸਮਗਰੀ ਉਪਲਬਧ ਨਹੀਂ।",
+    "unknown_clause": "ਅਣਜਾਣ ਧਾਰਾ"
+  },
+  "navbar": {
+    "documents": "ਦਸਤਾਵੇਜ਼",
+    "your_documents": "ਤੁਹਾਡੇ ਦਸਤਾਵੇਜ਼",
+    "no_documents_yet": "ਅਜੇ ਤੱਕ ਕੋਈ ਦਸਤਾਵੇਜ਼ ਨਹੀਂ",
+    "upload_first": "ਆਪਣਾ ਪਹਿਲਾ ਦਸਤਾਵੇਜ਼ ਅਪਲੋਡ ਕਰੋ"
   }
 }
-

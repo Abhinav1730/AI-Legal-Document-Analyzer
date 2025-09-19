@@ -13,6 +13,28 @@ import authRoutes from "./routes/auth.routes.js";
 import documentRoutes from "./routes/document.routes.js";
 
 dotenv.config();
+
+// Enable garbage collection if available
+if (global.gc) {
+  console.log('Garbage collection enabled');
+} else {
+  console.log('Garbage collection not available. Start with --expose-gc flag for better memory management');
+}
+
+// Memory monitoring
+function logMemoryUsage() {
+  const used = process.memoryUsage();
+  console.log('Memory usage:', {
+    rss: Math.round(used.rss / 1024 / 1024) + ' MB',
+    heapTotal: Math.round(used.heapTotal / 1024 / 1024) + ' MB',
+    heapUsed: Math.round(used.heapUsed / 1024 / 1024) + ' MB',
+    external: Math.round(used.external / 1024 / 1024) + ' MB'
+  });
+}
+
+// Log memory usage every 30 seconds
+setInterval(logMemoryUsage, 30000);
+
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);

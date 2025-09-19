@@ -21,6 +21,74 @@
     "indemnification": "Indemnification",
     "dispute resolution": "Dispute resolution",
     "unknown": "Unknown"
+  },
+  "dashboard": {
+    "title": "Your Legal Documents",
+    "login_required": "Please log in first.",
+    "login_required_desc": "Access your secure documents after login.",
+    "analysis_summary": "Analysis Summary",
+    "total_documents": "Total Documents",
+    "analyzed": "Analyzed",
+    "pending_analysis": "Pending Analysis",
+    "loading_documents": "Loading documents...",
+    "uploaded": "Uploaded",
+    "clauses_found": "clauses found",
+    "analysis_pending": "Analysis pending",
+    "view": "View",
+    "loading": "Loading...",
+    "analyze": "Analyze",
+    "analyzing": "Analyzing...",
+    "delete": "Delete",
+    "no_documents": "No documents uploaded yet.",
+    "no_documents_desc": "Upload contracts, agreements, or policies to get started."
+  },
+  "file_upload": {
+    "uploading": "Uploading document...",
+    "success": "Document uploaded successfully! Click \"Analyze\" to extract legal clauses.",
+    "error": "Upload failed. Please try again.",
+    "drop_files": "Drop the files here...",
+    "drag_drop": "Drag & drop legal docs here, or click to upload",
+    "file_types": "(PDF, DOCX, Images)"
+  },
+  "document_modal": {
+    "analysis_complete": "Analysis Complete",
+    "analysis_pending": "Analysis Pending",
+    "clauses_found": "clauses found",
+    "no_analysis": "No analysis available",
+    "found_clauses": "Found {count} legal clauses:",
+    "confidence": "Confidence",
+    "document_text": "Document Text",
+    "showing_preview": "Showing first 1000 characters. Full text available in database.",
+    "ai_analysis_available": "AI Analysis Available",
+    "ai_analysis_desc": "Click \"Analyze\" button on the document card to extract legal clauses using Google Gemini AI.",
+    "no_content": "No content available.",
+    "unknown_clause": "Unknown Clause"
+  },
+  "navbar": {
+    "documents": "Documents",
+    "your_documents": "Your Documents",
+    "no_documents_yet": "No documents yet",
+    "upload_first": "Upload your first document"
+  },
+  "auth": {
+    "welcome_back": "Welcome back",
+    "create_account": "Create your account",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "register": "Register",
+    "create_account_btn": "Create account",
+    "continue_with_google": "Continue with Google",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "email_required": "Email and password are required",
+    "name_required": "Name is required for registration",
+    "auth_failed": "Authentication failed. Please try again.",
+    "invalid_credentials": "Invalid email or password",
+    "email_in_use": "Email already in use",
+    "registration_failed": "Registration failed",
+    "login_failed": "Login failed"
   }
 }
 
