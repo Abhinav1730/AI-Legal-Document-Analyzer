@@ -2,12 +2,6 @@
 
 A powerful AI-powered legal document analysis platform that extracts and analyzes legal clauses from contracts, agreements, and legal documents using Google Gemini AI. Built with modern web technologies and featuring multi-language support.
 
-![LegalAI Logo](https://img.shields.io/badge/LegalAI-Legal%20Document%20Analyzer-gold?style=for-the-badge&logo=scale)
-![Next.js](https://img.shields.io/badge/Next.js-15.5.2-black?style=for-the-badge&logo=next.js)
-![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
-![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js)
-![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge&logo=mongodb)
-
 ## 🌟 Features
 
 ### 🤖 AI-Powered Analysis
